@@ -5,7 +5,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/tlias
     username: root
-    password: 123456   # <<<<<< 改成你自己 MySQL 的 root 密码
+    password: 1234   # 你的 MySQL root 密码(已验证可连)
 
 mybatis:
   configuration:
