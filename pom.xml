@@ -18,7 +18,8 @@
     <description>Tlias 教学管理系统 - 两天冲刺实战</description>
 
     <properties>
-        <java.version>21</java.version>
+        <!-- 与课程保持一致,你电脑上的 JDK17(E:\java\jdk17)和 JDK25 都能编译 -->
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>
