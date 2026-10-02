@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: tlias-web-management
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tlias
+    username: root
+    password: 123456   # <<<<<< 改成你自己 MySQL 的 root 密码
+
+mybatis:
+  configuration:
+    # 开启驼峰命名映射:dept_id -> deptId
+    map-underscore-to-camel-case: true
+    # 在控制台打印 SQL 日志
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
