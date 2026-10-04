@@ -18,4 +18,8 @@ public class DeptServiceImpl implements DeptService {
     public List<Dept> list(){
             return deptMapper.list();
         }
+        @Override
+        public void deleteById(Integer id){
+            deptMapper.deleteById(id);
+        }
 }
