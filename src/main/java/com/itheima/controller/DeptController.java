@@ -5,9 +5,7 @@ import com.itheima.pojo.Dept;
 import com.itheima.pojo.Result;
 import com.itheima.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +23,21 @@ public class DeptController {
         deptService.deleteById(id);
         return Result.success();
     }
+    @PostMapping("/depts")
+    public Result insert(@RequestBody Dept dept){
+        deptService.insert(dept);
+        return Result.success();
+    }
+    @PutMapping("/depts")
+    public Result update(@RequestBody Dept dept){
+        deptService.update(dept);
+        return Result.success();
+    }
+    @GetMapping("/depts/{id}")
+    public Result getById(@PathVariable Integer id){
+        return Result.success(deptService.getById(id));
+    }
+
 
 
 }
