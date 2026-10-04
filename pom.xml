@@ -18,7 +18,7 @@
     <description>Tlias 教学管理系统 - 两天冲刺实战</description>
 
     <properties>
-        <!-- 与课程保持一致,你电脑上的 JDK17(E:\java\jdk17)和 JDK25 都能编译 -->
+        <!-- 与课程保持一致 -->
         <java.version>17</java.version>
     </properties>
 
@@ -64,6 +64,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <mainClass>com.itheima.TliasWebManagementApplication</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
@@ -74,4 +75,33 @@
             </plugin>
         </plugins>
     </build>
+
+    <!--
+      JDK 23 起 javac 默认不再自动运行 classpath 上的注解处理器(隐式注解处理被关闭),
+      Lombok 因此不会被触发,@Data/@AllArgsConstructor 不生成任何代码,
+      导致 Result.java 编译失败、主类 TliasWebManagementApplication.class 根本生成不出来,
+      运行时报 "找不到或无法加载主类"。
+
+      -proc:full 是 JDK 21 才有的参数,在 JDK 17 上会直接报 "无效的标记"。
+      所以这里用 JDK 版本自动激活的 profile:只在 JDK 21+ 生效,JDK 17 保持原样。
+    -->
+    <profiles>
+        <profile>
+            <id>lombok-annotation-processing-jdk21plus</id>
+            <activation>
+                <jdk>[21,)</jdk>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <proc>full</proc>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
