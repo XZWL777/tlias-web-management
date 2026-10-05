@@ -1,6 +1,9 @@
 package com.itheima.service;
 
+import com.itheima.pojo.Emp;
 import com.itheima.pojo.PageBean;
+
+import java.time.LocalDate;
 
 public interface EmpService {
 
@@ -9,5 +12,6 @@ public interface EmpService {
      * @param page 第几页(从1开始)
      * @param pageSize 每页几条
      */
-    PageBean page(Integer page, Integer pageSize);
+    PageBean page(String name,Integer gender,LocalDate begin,LocalDate end, Integer page, Integer pageSize);
+    void save(Emp emp);
 }

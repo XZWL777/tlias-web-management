@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 员工实体类 - 对应 emp 表(13个字段)
@@ -30,4 +31,5 @@ public class Emp {
     private Integer deptId;         // dept_id → deptId 驼峰(你写成 dept_id)
     private LocalDateTime createTime;  // datetime 列 → LocalDateTime
     private LocalDateTime updateTime;
+    private List<EmpExpr> exprList;
 }
