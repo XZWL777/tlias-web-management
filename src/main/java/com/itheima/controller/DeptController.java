@@ -16,7 +16,8 @@ public class DeptController {
     @GetMapping("/depts")
     public Result list(){
         List<Dept> depts = deptService.list();
-        return Result.success(depts);            //需要一个对象调用list方法来返回值给service层
+        return Result.success(depts);//需要一个对象调用list方法来返回值给service层
+
     }
     @DeleteMapping("/depts")
     public Result deleteById(Integer id){
