@@ -63,10 +63,11 @@ public class EmpServiceImpl implements EmpService {   // 类名大驼峰 Impl;�
         }
     }
 
+    // 双遍法任务:实现login —— 调empMapper查库,把结果原样返回
+    // (单个对象别起名叫list)
     @Override
     public Emp login(Emp emp){
-        Emp list=empMapper.login(emp);
-        return list;
+       Emp e= empMapper.login(emp);
+       return e;
     }
-
 }

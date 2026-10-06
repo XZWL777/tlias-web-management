@@ -15,5 +15,7 @@ public interface EmpService {
      */
     PageBean page(String name,Integer gender,LocalDate begin,LocalDate end, Integer page, Integer pageSize);
     void save(Emp emp);
+
+    // 双遍法任务:声明login方法 —— 收Emp,返回Emp(查不到返回null,不是List!)
     Emp login(Emp emp);
 }

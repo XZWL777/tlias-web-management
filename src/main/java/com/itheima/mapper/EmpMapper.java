@@ -22,7 +22,9 @@ public interface EmpMapper {
             "values (#{username},#{name},#{gender},#{phone},#{job},#{salary},#{image},#{entryDate},#{deptId},#{createTime},#{updateTime})")
     void insert(Emp emp);
 
-    @Select("select * from emp where username=#{username} and password = #{password}")
+    // 双遍法任务:按用户名+密码查员工
+    // 提醒: select * 不是 select 两列;列名拼写(usenname这种错别再犯)
+    @Select("select * from emp where username=#{username} and password=#{password}")
     Emp login(Emp emp);
 
 }
