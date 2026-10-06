@@ -49,7 +49,7 @@ public class EmpServiceImpl implements EmpService {   // 类名大驼峰 Impl;�
 
 
     @Override
-//    @Transactional(rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void save(Emp emp){
         emp.setCreateTime(LocalDateTime.now());
         emp.setUpdateTime(LocalDateTime.now());
@@ -62,4 +62,11 @@ public class EmpServiceImpl implements EmpService {   // 类名大驼峰 Impl;�
             empExprMapper.insertBatch(exprList);
         }
     }
+
+    @Override
+    public Emp login(Emp emp){
+        Emp list=empMapper.login(emp);
+        return list;
+    }
+
 }
